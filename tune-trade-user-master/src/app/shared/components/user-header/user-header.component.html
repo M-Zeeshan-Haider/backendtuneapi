@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand navbar-light bg-light">
+    <div class="container">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/user','home']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"> <fa-icon [icon]="['fa','columns']"></fa-icon> Dashboard</a>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link"> <fa-icon [icon]="['fa', 'project-diagram']"></fa-icon> Buy Tokens</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"> <fa-icon [icon]="['fa', 'coins']"></fa-icon> ICO Distributions</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"> <fa-icon [icon]="['fa', 'exchange-alt']"></fa-icon> Transactions</a>
+            </li> -->
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/user', 'home','profile']" routerLinkActive = "active"> <fa-icon [icon]="['fa', 'user']"></fa-icon> Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/user', 'home','createtoken']" routerLinkActive = "active"> <fa-icon [icon]="['fa', 'coins']"></fa-icon> Create Token</a>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link"> <fa-icon [icon]="['fa', 'cog']"></fa-icon> Pages</a>
+            </li> -->
+            
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li *ngIf="!formdisable" class="nav-item application-button" [routerLink]="['/user','home','kycmain']">
+                <fa-icon [icon]="['fa','copy']"></fa-icon> KYC Application
+            </li>
+            <li *ngIf="errormessage" class="nav-item application-button" >
+                <fa-icon [icon]="['fa','copy']"></fa-icon> KYC Application is Verified 
+            </li> 
+        </ul>
+    </div>
+    
+</nav>

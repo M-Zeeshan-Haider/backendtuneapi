@@ -1,0 +1,33 @@
+<div class="background">
+    <div class="custom-container">
+        <div class="image-wrap">
+            <img src="../../../../assets/Complete logo blue.svg" alt="">
+        </div>
+        <div class="heading">
+            Sign in
+        </div>
+        <div class="signup-text mb-4">
+            with your tokenWiz Account
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+            <div class="form-group mb-4">
+                <input type="text" formControlName="userId" placeholder="Enter Email" class="form-control">
+            </div>
+            <div class="form-group mb-4">
+                <input type="password" formControlName="userPassword" class="form-control" placeholder="Enter Password">
+            </div>
+            <div class="row mb-4">
+                <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                            <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+                        </div>
+                </div>
+                <div class="col forgot-link">
+                    <a class="ml-auto">Forgot Password ?</a>
+                </div>
+            </div>
+            <button class="btn btn-primary sign-button" type="submit">Sign In</button>
+        </form>
+    </div>
+</div>

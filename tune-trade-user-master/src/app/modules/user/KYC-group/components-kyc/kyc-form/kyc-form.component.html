@@ -1,0 +1,194 @@
+<div class="custom-container shadow">
+    <div class="form-heading">
+        <div class="number-wrap">
+            <img src="../../../../../../assets/numbersfolder/iconforone.svg" alt="">
+        </div>
+        <div class="detail-section">
+            <h3>Personal Details</h3>
+            <p>Your simple personal information required for identification</p>
+        </div>
+    </div>
+    <hr>
+    <p class="info-area"> 
+        <fa-icon [icon]="['fa', 'info-circle']"></fa-icon> Please type carefully and fill out the form with your personal details. Your can’t edit these details once you submitted the form.
+    </p>
+    <form [formGroup]="kycForm" (ngSubmit)="sendkycForm(kycForm.value)">
+        <div class="row">
+            <div class="col-md-6 col-12">
+                <label for="firstName">First Name:</label>
+                <input type="text" formControlName="firstName" class="form-control" placeholder="Enter first name" required  [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+            </div>
+            <div class="col-md-6 col-12">
+                <label for="lastName">Last Name: </label>
+                <input type="text" formControlName="lastName" class="form-control" placeholder="Enter last name" required  [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-12">
+                <label for="email">Email Adress: </label>
+                <input type="text"  class="form-control" placeholder="{{email1}}"  disabled  >
+            </div>
+            <div class="col-md-6 col-12">
+                <label for="Phone Number">Phone number</label>
+                <input type="text" formControlName="phoneNumber" class="form-control" placeholder="Enter Phone Number" required  [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-12">
+                <label for="birthDate">Date of birth: </label>
+                <input type="text" formControlName="birthDate" class="form-control" placeholder="Enter date of birth" required  [ngClass]="{ 'is-invalid': submitted && f.birthDate.errors }">
+            </div>
+            <div class="col-md-6 col-12">
+                <label for="telegram">Telegram username</label>
+                <input type="text" formControlName="teleName" class="form-control" placeholder="Enter telegram username" required  [ngClass]="{ 'is-invalid': submitted && f.teleName.errors }">
+            </div>
+        </div>
+        <h4 class="in-form-head">Your Address</h4>
+        <div class="row">
+            <div class="col-md-6 col-12">
+                <label for="addressOne">Address Line 1:</label>
+                <input type="text" formControlName="addressOne" class="form-control" placeholder="" required  [ngClass]="{ 'is-invalid': submitted && f.addressOne.errors }">
+            </div>
+            <div class="col-md-6 col-12">
+                <label for="address2">Address Line 2</label>
+                <input type="text" formControlName="addressTwo" class="form-control" placeholder="" required  [ngClass]="{ 'is-invalid': submitted && f.addressTwo.errors }">
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-12">
+                <label for="city">City</label>
+                <input type="text" formControlName="city" class="form-control" placeholder="" required  [ngClass]="{ 'is-invalid': submitted && f.city.errors }">
+            </div>
+            <div class="col-md-6 col-12">
+                <label for="state">State</label>
+                <input type="text" formControlName="state" class="form-control" placeholder="" required  [ngClass]="{ 'is-invalid': submitted && f.state.errors }">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-12">
+                <label for="nationality">Nationality: </label>
+                <input type="text" formControlName="nationality" class="form-control" placeholder="" required  [ngClass]="{ 'is-invalid': submitted && f.nationality.errors }">
+            </div>
+            <div class="col-md-6 col-12">
+                <label for="zip">Zip Code: </label>
+                <input type="text" formControlName="zipCode" class="form-control" placeholder="" required  [ngClass]="{ 'is-invalid': submitted && f.zipCode.errors }">
+            </div>
+        </div>
+    
+        <hr>
+        <div class="form-heading">
+            <div class="number-wrap">
+                <img src="../../../../../../assets/numbersfolder/iconfottwo.svg" alt="">
+            </div>
+            <div class="detail-section">
+                <h3>Document Upload</h3>
+                <p>To verify your identity, please upload any of your document</p>
+            </div>
+        </div>
+        <hr>
+        <p class="info-area"> 
+            <fa-icon [icon]="['fa', 'info-circle']"></fa-icon> In order to complete, please upload any of the following personal document.
+        </p>
+        <div>
+            <button type="button" class="btn selection-button" (click)="setVerificationType(0)">
+                <div class="selection-icon">
+                    <fa-icon [icon] = "['fa', 'passport']" size="2x"></fa-icon>
+                </div>
+                <div class="selection-text">
+                    PASSPORT 
+                </div>
+            </button>
+            <button type="button" class="btn selection-button" (click)="setVerificationType(1)">
+                <div class="selection-icon">
+                    <fa-icon [icon] = "['fa', 'address-card']" size="2x"></fa-icon>
+                </div>
+                <div class="selection-text">
+                    NATIONAL CARD 
+                </div>
+            </button>
+            <button type="button" class="btn selection-button" (click)="setVerificationType(2)">
+                <div class="selection-icon">
+                    <fa-icon [icon] = "['fa', 'address-card']" size="2x"></fa-icon>
+                </div>
+                <div class="selection-text">
+                    DRIVER LICENCSE 
+                </div>
+            </button>
+        </div>
+        <p class="bold-para">
+            To avoid delays when verifying account, Please make sure bellow:
+        </p>
+        <div class="check-list">
+            <div> <fa-icon [icon]="['fa', 'check']"></fa-icon> Chosen credential must not be expaired.</div>
+            <div> <fa-icon [icon]="['fa', 'check']"></fa-icon> Document should be good condition and clearly visible.</div>
+            <div> <fa-icon [icon]="['fa', 'check']"></fa-icon> Make sure that there is no light glare on the card.</div>
+        </div>
+        <p class="bold-para">
+            Upload Here Your Passport Copy
+        </p>
+        <div class="form-group">
+            <div class="image-wrap-id">
+                <img [src]="imageSrc" class="idImageDisplay" alt="">
+            </div>
+            <input type="file" formControlName="idImage" accept="image/*" (change)="handleInputChange($event)" required  [ngClass]="{ 'is-invalid': submitted && f.idImage.errors }">
+            <div *ngIf="submitted && f.idImage.errors">
+                <div *ngIf="f.walletAddress.errors.required" style="color: red">Image is required.</div>
+               
+            </div>
+        </div>
+        <hr>
+        <div class="form-heading">
+            <div class="number-wrap">
+                <img src="../../../../../../assets/numbersfolder/iconforthree.svg" alt="">
+            </div>
+            <div class="detail-section">
+                <h3>Your Paying Wallet</h3>
+                <p>Submit your wallet address that you are going to send funds</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-12">
+                <label for="wallet">Select Waller</label>
+                <select class="form-control" formControlName="walletType" name="wallet" id="wallet" required [ngClass]="{ 'is-invalid': submitted && f.walletType.errors }"  > 
+                    <option value="ehtereum" selected>Ethereum</option>
+                    
+                </select>
+            </div>
+            <div class="col-12">
+                <label for="wallet-address">Your address foes here</label>
+                <input class="form-control" formControlName="walletAddress" type="text" placeholder="sidjo233029j0j49jxzx9xu09j09j09j21321939" required minlength="42" maxlength="42" [ngClass]="{ 'is-invalid': submitted && f.walletAddress.errors }">
+                <div *ngIf="submitted && f.walletAddress.errors">
+                    <div *ngIf="f.walletAddress.errors.minlength">Walletaddress must be 42 characters long.</div>
+                    <div *ngIf="f.walletAddress.errors.maxlength">Walletaddress must be 42 characters long.</div>
+                </div>
+            </div>
+        </div>
+        <p class="info-area-wallet">
+            Note: Address should be ERC20-compliant.
+        </p>
+        <hr>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" formControlName="checkbox1" id="defaultCheck1" [ngClass]="{ 'is-invalid': submitted && f.checkbox1.errors }" required>
+            <label class="form-check-label" for="defaultCheck1">
+                    I Have Read The <a >Terms Of Condition</a> And <a>Privary Policy</a>.
+            </label>
+            <!-- <div *ngIf="submitted && f.checkbox1.errors">
+                <div *ngIf="f.walletAddress.errors.minlength">Walletaddress must be 42 characters long.</div>
+                <div *ngIf="f.walletAddress.errors.maxlength">Walletaddress must be 42 characters long.</div>
+            </div> -->
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" formControlName="checkbox2"  [ngClass]="{ 'is-invalid': submitted && f.checkbox2.errors }" required>
+            <label class="form-check-label" for="defaultCheck2">
+                    All The Personal Information I Have Entered Is Correct.
+            </label>
+            <!-- <div *ngIf="submitted && f.walletAddress.errors">
+                <div *ngIf="f.walletAddress.errors.minlength">Walletaddress must be 42 characters long.</div>
+                <div *ngIf="f.walletAddress.errors.maxlength">Walletaddress must be 42 characters long.</div>
+            </div> -->
+        </div>
+        <button type='submit' class='btn btn-primary button-submit'>Process for verify</button>
+    </form>
+</div>

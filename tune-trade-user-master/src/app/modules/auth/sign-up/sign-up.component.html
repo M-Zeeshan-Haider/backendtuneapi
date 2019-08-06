@@ -1,0 +1,34 @@
+<div class="background">
+    <div class="custom-container">
+        <div class="image-wrap mx-auto">
+            <img src="../../../../assets/Complete logo blue.svg"alt="">
+        </div>
+        <form action="" [formGroup]='signupForm' (ngSubmit)="signup(signupForm.value)">
+            <div class="form-row">
+                <div class="col-12 form-group">
+                    <label for="fullName">Name</label>
+                    <input type="text" class="form-control" formControlName = "userName" placeholder="Enter full name" name="" id="fullName">
+                </div>
+                <div class="col-12 form-group">
+                    <label for="userId">UserName</label>
+                    <input type="text" class="form-control" formControlName = "userId" placeholder="Enter User name" name="" id="userId"> 
+                </div>
+                <div class="col-12 form-group">
+                    <label for="emailAddress">Email Address</label>
+                    <input type="text" class="form-control" formControlName = "userEmail" placeholder="Enter Email Address" name="" id="emailAddress">
+                </div>
+                <div class="col-12 form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" formControlName = "userPassword" placeholder="Password" name="" id="password">
+                </div>
+                <div class="col-12 form-group">
+                    <label for="rePassword">Repeat Password</label>
+                    <input type="password" class="form-control" placeholder="Repeat Password" name="rePassword" id="">
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary" type="submit">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

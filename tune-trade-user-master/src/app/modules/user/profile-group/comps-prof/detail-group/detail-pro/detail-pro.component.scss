@@ -1,0 +1,18 @@
+.custom-container {
+    background-color: white;
+    border-radius: 5px;
+    h3 {
+        font-weight: 500;
+        color:#253992;
+    }
+}
+.nav-link {
+    border: none;
+    color: #458FFF;
+}
+.nav-link.active {
+    border-bottom: 3px solid #458FFF;
+    color: #458FFF;
+    font-weight: 500;
+    transition: 300ms;
+}

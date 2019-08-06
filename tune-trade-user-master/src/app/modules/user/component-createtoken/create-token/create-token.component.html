@@ -1,0 +1,100 @@
+<div class="container-custom shadow">
+    <h3>Create Token</h3>
+    <hr>
+    <form  [formGroup]="createTokenForm" (ngSubmit)="submitToken(createTokenForm.value)">
+        <div class="flex-container">
+            <div class="form-group flex-item">
+                <label for="">Token Name</label>
+                <input type="text" placeholder="" formControlName="tokenName" class="form-control" required  [ngClass]="{ 'is-invalid': submitted && f.tokenName.errors }">
+                <div *ngIf="submitted && f.tokenName.errors">
+                    <div *ngIf="f.tokenName.errors.required">Token name is required</div>
+                </div>
+            </div>
+            <div class="form-group flex-item">
+                <label for="">Token Symbol</label>
+                <input type="text" placeholder="" formControlName="tokenSymbol" class="form-control" required  [ngClass]="{ 'is-invalid': submitted && f.tokenSymbol.errors }">
+                <div *ngIf="submitted && f.tokenSymbol.errors">
+                    <div *ngIf="f.tokenSymbol.errors.required">Token symbol is required</div>
+                </div>
+            </div>
+            <div class="form-group flex-item">
+                <label for="">Token Supply</label>
+                <input type="text" placeholder="" formControlName="totalSupply" class="form-control" required  [ngClass]="{ 'is-invalid': submitted && f.totalSupply.errors }">
+                <div *ngIf="submitted && f.totalSupply.errors">
+                    <div *ngIf="f.totalSupply.errors.required">Total supply is required</div>
+                </div>
+            </div>
+            <div class="form-group flex-item">
+                <label for="">Decimals</label>
+                <input type="text" placeholder="" formControlName="decimals" class="form-control" required  [ngClass]="{ 'is-invalid': submitted && f.decimals.errors }">
+                <div *ngIf="submitted && f.decimals.errors">
+                    <div *ngIf="f.decimals.errors.required">Decimals is required</div>
+                </div>
+            </div>
+            <div class="form-group flex-item">
+                <label for="">Ethereum Address</label>
+                <input type="text" placeholder="" formControlName="ethAddress" class="form-control" required  [ngClass]="{ 'is-invalid': submitted && f.ethAddress.errors }">
+                <div *ngIf="submitted && f.ethAddress.errors">
+                    <div *ngIf="f.ethAddress.errors.required">Ethaddress is required</div>
+                </div>
+            </div>
+            <div class="form-group flex-item">
+                <label for="">Author</label>
+                <input type="text" placeholder="" formControlName="author" class="form-control" required [ngClass]="{ 'is-invalid': submitted && f.author.errors }">
+                <div *ngIf="submitted && f.author.errors">
+                    <div *ngIf="f.author.errors.required">Author is required</div>
+                </div>
+            </div>
+            <div class="form-group flex-item">
+                <label for="">Website</label>
+                <input type="text" placeholder="" formControlName="website" class="form-control" required  [ngClass]="{ 'is-invalid': submitted && f.website.errors }">
+                <div *ngIf="submitted && f.website.errors">
+                    <div *ngIf="f.website.errors.required">Website is required</div>
+                </div>
+            </div>
+            <div class="form-group flex-item">
+                <label for="">Sound Cloud</label>
+                <input type="text" placeholder="" formControlName="soundCloud" class="form-control" required  [ngClass]="{ 'is-invalid': submitted && f.soundCloud.errors }">
+                <div *ngIf="submitted && f.soundCloud.errors">
+                    <div *ngIf="f.soundCloud.errors.required">Soundcloud is required</div>
+                </div>
+            </div>
+            <div class="form-group flex-item">
+                <label for="">Youtube</label>
+                <input type="text" placeholder="" formControlName="youtube" class="form-control" required [ngClass]="{ 'is-invalid': submitted && f.youtube.errors }">
+                <div *ngIf="submitted && f.youtube.errors">
+                    <div *ngIf="f.youtube.errors.required">Youtube is required</div>
+                </div>
+            </div>
+            <div class="form-group flex-item">
+                <label for="">Category</label>
+                <select class="form-control" formControlName="category" name="" id="" required  [ngClass]="{ 'is-invalid': submitted && f.category.errors }">
+                    <option value="" selected>Category</option>
+                    <option value="electronic">Electronic</option>
+                    <option value="dance">Dance</option>
+                    <option value="disney">Disney</option>
+                    <option value="comedy">Comedy</option>
+                    <option value="transaction">Transaction</option>
+                    <option value="movies">Movies</option>
+                    <option value="other">others...</option>
+                </select>
+                <div *ngIf="submitted && f.category.errors">
+                    <div *ngIf="f.category.errors.required">Category is required</div>
+                </div>
+            </div>
+            <div class="form-group flex-item">
+                <label for="">Description</label>
+                <textarea name="" class="form-control" formControlName="tokenDescription" id="" cols="30" rows="5" required  [ngClass]="{ 'is-invalid': submitted && f.tokenDescription.errors }"></textarea>
+                <div *ngIf="submitted && f.tokenDescription.errors">
+                    <div *ngIf="f.tokenDescription.errors.required">Tokendescription is required</div>
+                </div>
+            </div>
+            <div class="form-group flex-item">
+                <div class="button-wrap">
+                    <button type="submit" class="btn btn-primary"><fa-icon [icon]="['fa','upload']"></fa-icon> Sumit Token</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>

@@ -1,0 +1,32 @@
+<div class="transaction-area">
+    <div class="row">
+        <div class="col-9">
+            <h4>
+                Transaction
+            </h4>
+        </div>
+        <div class="col-3 link-area">
+            <a class="custom-link">VIEW ALL <fa-icon [icon]="['fa','chevron-right']"></fa-icon> </a>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>TWZ TOKENS</th>
+                    <th>AMOUNT</th>
+                    <th>DATE</th>
+                    <th>ACTIONS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let transaction of transactions">
+                    <td>{{transaction.token}}</td>
+                    <td>{{transaction.amount}} ETH</td>
+                    <td>{{transaction.date}}</td>
+                    <td><button [ngClass]="[transaction.type, 'btn']" >{{transaction.type}}</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

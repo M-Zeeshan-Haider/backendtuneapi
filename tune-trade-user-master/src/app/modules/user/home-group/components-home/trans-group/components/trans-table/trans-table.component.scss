@@ -1,0 +1,38 @@
+.transaction-area {
+    height: 100%;
+    background-color: white;
+    padding: 25px 30px;
+    border-radius: 5px;
+}
+h4 {
+    color: #253992;
+}
+th {
+    border: 0px !important;
+    color: #3F8BFF;
+    font-size: 13px;
+}
+td {
+    border: 0px !important
+}
+.purchase {
+    border-color: red
+}
+.bonus {
+    border-color: green
+}
+.btn {
+    width: 120px;
+    text-align: center;
+}
+.link-area {
+    text-align: right;
+    .custom-link {
+        color: #1c65c9 !important;
+        font-size: 12px;
+        font-weight: 700 !important;
+        fa-icon {
+            font-size: 10px;
+        }
+    }
+}

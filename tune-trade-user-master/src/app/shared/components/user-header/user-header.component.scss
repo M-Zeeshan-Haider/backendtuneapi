@@ -1,0 +1,29 @@
+.bg-light {
+    background-color: white !important;
+}
+nav {
+    padding-bottom: 0px;
+}
+.nav-item {
+    .nav-link {
+        color: #2e81ff;
+        cursor: pointer;
+        font-weight: 500;
+        padding: 10px 20px;
+    }
+    .active {
+        border-bottom: 2px solid #2e81ff;
+    }
+    
+}
+.application-button {
+    border: 1px solid rgba(128, 128, 128, 0.308);
+    padding: 5px 10px;
+    font-weight: 500;
+    color: grey;
+    border-radius: 3px;
+    cursor: pointer;
+    fa-icon {
+        color: #2e81ff
+    }
+}

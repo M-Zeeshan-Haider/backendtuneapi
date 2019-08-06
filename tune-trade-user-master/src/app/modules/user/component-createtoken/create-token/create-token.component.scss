@@ -1,0 +1,59 @@
+.container-custom {
+    background-color: white;
+    width: 70%;
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: 20px 30px;
+    h3 {
+        font-family: 300;
+        color:#253992;
+    }
+}
+label {
+    color: #458FFF;
+    font-weight: 500;
+}
+.flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+.flex-item {
+    transition: 400ms;
+    flex: 0 1 33.33%;
+    padding: 0px 20px;
+}
+.button-wrap {
+    padding-top:33px;
+    .btn {
+        width: 100%;
+        font-weight: 600;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .flex-item {
+        flex: 1 1 50%;
+        transition: 400ms;
+        
+    }
+    .container-custom {
+        width: 80%;
+        transition: 400ms;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .flex-item {
+        flex: 0 1 100%;
+        transition: 400ms;
+    }
+    .container-custom {
+        width: 90%;
+        transition: 400ms;
+    }
+    .button-wrap {
+        padding-top: 0px;
+        transition: 400ms;
+    }
+}

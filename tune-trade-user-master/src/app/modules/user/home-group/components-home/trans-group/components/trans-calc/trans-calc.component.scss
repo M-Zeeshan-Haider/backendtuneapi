@@ -1,0 +1,50 @@
+.calculation-area {
+    // height: 100%;
+    background-color: white;
+    padding: 25px 30px;
+    border-radius: 5px;
+    position: relative;
+}
+h4 {
+    color: #253992;
+}
+.input-with-option {
+    border: none;
+    border-right: 1px solid rgba(128, 128, 128, 0.205);
+    display: inline-block
+}
+.option {
+    border: none;
+    display: inline-block;
+}
+.child-row {
+    border: 1px solid rgba(128, 128, 128, 0.459);
+    border-radius: 3px;
+    .col {
+        padding: 0px;
+    }
+}
+.input-with-option:focus, option:focus {
+
+    box-shadow: none;
+
+}
+
+.convert-area {
+    padding: 6px 0px;
+    .converted-value {
+        display: inline-block;
+    }
+}
+
+p {
+    font-size: 13px;
+    color: #778799;
+}
+form {
+    margin: 10px 0px;
+}
+
+.buy-button {
+    width: 100%;
+}

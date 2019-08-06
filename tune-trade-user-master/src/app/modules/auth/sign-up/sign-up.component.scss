@@ -1,0 +1,37 @@
+.background {
+    background-color: rgb(37, 57, 146);
+    height: 100%;
+}
+.custom-container {
+    background-color: white;
+    height: 100%;
+    width: 40%;
+    display: block;
+    margin: 0 auto;
+    padding: 50px 80px;
+}
+
+.image-wrap {
+    width: 300px;
+    height: 120px;
+    img {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.btn-primary {
+    width: 100%;
+}
+@media only screen and (max-width: 992px) {
+    .custom-container {
+        width: 70%;
+        transition: 400ms;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .custom-container {
+        width: 90%;
+        transition: 400ms;
+    }
+}

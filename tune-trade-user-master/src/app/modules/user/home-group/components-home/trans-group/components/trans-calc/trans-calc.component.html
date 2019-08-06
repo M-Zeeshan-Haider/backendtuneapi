@@ -1,0 +1,36 @@
+<div class="calculation-area">
+    <h4>Token Calculation</h4>
+    <div>Enter amount to calculate token.</div>
+    <form action="">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="row child-row">
+                        <div class="col">
+                            <input class="form-control input-with-option" (change)="convertValue(cryptoValue.value)" #cryptoValue type="number">
+                        </div>
+                        <div class="col">
+                            <select name="" class="option form-control" id="">
+                                <option selected value="">ETH</option>
+                                <option value="">BTC</option>
+                                <option value="">LTC</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="convert-area">
+                        <span>= </span>
+                        <div class="converted-value">
+                            {{convertedValue}} TWZ
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <p> <fa-icon [icon]="['fa', 'info-circle']"></fa-icon> Amount calculated based current tokens price</p>
+    <div>
+        <button class="btn btn-primary buy-button">Buy Tokens</button>
+    </div>
+</div>

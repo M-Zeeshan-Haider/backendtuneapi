@@ -1,0 +1,40 @@
+.description-area {
+    background-color: white;
+    border-radius: 5px;
+    padding: 30px 0px;
+    .content-area {
+        position: relative;
+        .content-area-align {
+            position: absolute;
+            top: 50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+        }
+        .btn {
+            margin-top: 20px;
+        }
+        .table-blue {
+            color: #3988ff;
+        }
+    }
+    .border-class {
+        text-align: center;
+        border-right: 1px solid rgba(128, 128, 128, 0.144);
+        .lead-unit {
+            color: #7b8b9c;
+            font-size: 30px;
+            font-weight: 400;
+        }
+        .unit {
+            color: #253992;
+        }
+        .logo-area {
+            margin-bottom: 15px;
+            img {
+                height: 50px;
+                margin: 0 auto;
+                display: block;
+            }
+        }
+    }
+}

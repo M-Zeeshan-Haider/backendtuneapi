@@ -1,0 +1,25 @@
+.container-custom {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    h6 {
+        color: rgb(37, 57, 146);
+    }
+    .url-row {
+        border: 1px solid rgba(128, 128, 128, 0.274);
+        border-radius: 3px;
+        .url-area {
+            padding-top: 5px;
+            color: grey;
+            overflow: hidden;
+        }
+    }
+    .button-area {
+        padding: 0px !important;
+        .btn {
+            width: 100% !important;
+    
+        }
+    }
+    
+}

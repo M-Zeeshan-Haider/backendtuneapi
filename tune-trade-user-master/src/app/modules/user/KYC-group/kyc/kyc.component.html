@@ -1,0 +1,3 @@
+<app-kyc-main *ngIf="showMain" (goToFormTrigger) = "goToForm($event)" ></app-kyc-main>
+<app-kyc-form *ngIf="showForm" (goToSuccessTrigger) = "goToSuccess($event)"></app-kyc-form>
+<app-kyc-success *ngIf="showSuccess"></app-kyc-success>

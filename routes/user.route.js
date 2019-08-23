@@ -37,4 +37,11 @@ module.exports = (app) => {
   
     app.post('/getapprovedkyc',kycController.getapprovedkyc);
 
+    /**route for get token by id from getListTokenById */
+      app.post('/getListTokenId',tokenController.getListTokenById)
+
+      /**get tokendetails by id from token */
+      app.post('/getTokenById',tokenController.tokenById)
+      /**get token by id from createtoken */
+      app.post('/getCreateTokenById',tokenController.getCreateTokenById)
 }

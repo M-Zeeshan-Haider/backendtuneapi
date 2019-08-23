@@ -131,7 +131,6 @@ module.exports.getListTokens = (req, res) => {
     db.execute(`SELECT * FROM heroku_cd5497db7ba8561.listtoken` ).then((data) => {
         if(data[0].length > 0){
             res.send({
-                "message":'HURRAH', 
                 status:true, 
                 data: data[0] 
             });
@@ -241,4 +240,78 @@ module.exports.getDeployTokens = (req, res) => {
             )
         }
     )
+}
+
+/**get token by id for listtoken table */
+module.exports.getListTokenById = (req,res) =>{
+  const sid=req.body.id;
+
+ db.execute(`SELECT * FROM heroku_cd5497db7ba8561.listtoken where listTokenid="${sid}"`).then(data=>{
+     if(data[0].length > 0){
+         res.send({
+             status:true,
+             data:data[0]
+         })
+     }else {
+         res.send({
+             status:false,
+             message:"No Data found"
+         })
+     }
+ }).catch(err=>{
+     res.send({
+         status:false,
+         message:err.message,
+         data: null
+     })
+ })
+}
+/**get token by id form tokens table */
+module.exports.tokenById = (req,res) =>{
+    const sid=req.body.id;
+
+    db.execute(`SELECT * FROM heroku_cd5497db7ba8561.tokens where id="${sid}"`).then(data=>{
+        if(data[0].length > 0){
+            res.send({
+                status:true,
+                data:data[0]
+            })
+        }else {
+            res.send({
+                status:false,
+                message:"No Data found"
+            })
+        }
+    }).catch(err=>{
+        res.send({
+            status:false,
+            message:err.message,
+            data: null
+        })
+    })
+}
+/**get token by id from createtoken table */
+
+module.exports.getCreateTokenById =(req,res)=>{
+    const sid=req.body.id;
+
+    db.execute(`SELECT * FROM heroku_cd5497db7ba8561.createtoken where createTokenId="${sid}"`).then(data=>{
+        if(data[0].length > 0){
+            res.send({
+                status:true,
+                data:data[0]
+            })
+        }else {
+            res.send({
+                status:false,
+                message:"No Data found"
+            })
+        }
+    }).catch(err=>{
+        res.send({
+            status:false,
+            message:err.message,
+            data: null
+        })
+    })
 }

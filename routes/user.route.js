@@ -44,4 +44,7 @@ module.exports = (app) => {
       app.post('/getTokenById',tokenController.tokenById)
       /**get token by id from createtoken */
       app.post('/getCreateTokenById',tokenController.getCreateTokenById)
+      /**get kyc by id  */
+
+      app.post('/getKycid',tokenController.getKycById);
 }

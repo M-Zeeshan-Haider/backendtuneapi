@@ -315,3 +315,28 @@ module.exports.getCreateTokenById =(req,res)=>{
         })
     })
 }
+
+/**get kyc bu id */
+module.exports.getKycById =(req,res)=>{
+    const sid=req.body.id;
+
+    db.execute(`SELECT * FROM heroku_cd5497db7ba8561.kyc where idkyc="${sid}"`).then(data=>{
+        if(data[0].length > 0){
+            res.send({
+                status:true,
+                data:data[0]
+            })
+        }else {
+            res.send({
+                status:false,
+                message:"No Data found"
+            })
+        }
+    }).catch(err=>{
+        res.send({
+            status:false,
+            message:err.message,
+            data: null
+        })
+    })
+}

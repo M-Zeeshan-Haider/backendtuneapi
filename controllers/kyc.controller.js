@@ -15,13 +15,14 @@ module.exports.createKyc = (req, res) => {
         state: req.body.state ,
         nationality: req.body.nationality ,
         zipCode: req.body.zipCode ,
-        walletType: req.body.walletType ,
-        walletAddress: req.body.walletAddress ,
+        profileimage: req.body.profileimage ,
+        verificationimage: req.body.verificationimage ,
         imageAddress: req.body.imageAddress ,
-        verificationType: req.body.verificationType
+        verificationType: req.body.verificationType,
+        documentType: req.body.documentType
     }
 
-    db.execute(`INSERT INTO heroku_cd5497db7ba8561.kyc (firstName, lastName, email, phoneNumber, birthDate, teleName, addressOne, addressTwo, city, state, nationality, zipCode, walletType, walletAddress, imageAddress, verificationType) VALUES ("${kycData.firstName}", "${kycData.lastName}", "${kycData.email}", "${kycData.phoneNumber}", "${kycData.birthDate}", "${kycData.teleName}", "${kycData.addressOne}", "${kycData.addressTwo}", "${kycData.city}", "${kycData.state}", "${kycData.nationality}", "${kycData.zipCode}", "${kycData.walletType}", "${kycData.walletAddress}", "${kycData.imageAddress}", "${kycData.verificationType}" )`).then((data) => {
+    db.execute(`INSERT INTO heroku_cd5497db7ba8561.kyc (firstName, lastName, email, phoneNumber, birthDate, teleName, addressOne, addressTwo, city, state, nationality, zipCode, profileimage, verificationimage, imageAddress, verificationType,documentType) VALUES ("${kycData.firstName}", "${kycData.lastName}", "${kycData.email}", "${kycData.phoneNumber}", "${kycData.birthDate}", "${kycData.teleName}", "${kycData.addressOne}", "${kycData.addressTwo}", "${kycData.city}", "${kycData.state}", "${kycData.nationality}", "${kycData.zipCode}", "${kycData.profileimage}", "${kycData.verificationimage}", "${kycData.imageAddress}", "${kycData.verificationType}", "${kycData.documentType}" )`).then((data) => {
         console.log(data);
         if (data) {
             res.send({

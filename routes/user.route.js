@@ -31,7 +31,7 @@ module.exports = (app) => {
 
     app.post('/kycrequest', kycController.createKyc);
 
-    app.get('/getkycreq', kycController.getkyc);
+    app.post('/getkycreq', kycController.getkyc);
     app.post('/verifystatus',kycController.verifykyc);
     app.post('/updatekycstatus',kycController.updatekyc);
   

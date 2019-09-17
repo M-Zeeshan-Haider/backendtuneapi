@@ -32,7 +32,7 @@ export class UserHeaderComponent implements OnInit {
     this.kyc.VerifyKycForm(this.email).subscribe(
       res => {
         if (res.status === true) {
-          console.log(res);
+          // console.log(res);
           this.formdisable = true;
           console.log(this.formdisable);
           
@@ -49,7 +49,7 @@ export class UserHeaderComponent implements OnInit {
     this.kyc.getKycForm(this.email).subscribe(
       res => {
         if (res.status === true) {
-          console.log(res);
+          // console.log(res);
          this.errormessage = true;
           console.log(this.formdisable);
           

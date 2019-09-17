@@ -47,4 +47,9 @@ module.exports = (app) => {
       /**get kyc by id  */
 
       app.post('/getKycid',tokenController.getKycById);
+
+      /**
+       * ***update kyc data on basis of email***
+       */
+      app.post('/kycProfileUpdate',kycController.updateKycData);
 }

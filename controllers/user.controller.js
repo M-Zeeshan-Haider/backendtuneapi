@@ -58,7 +58,7 @@ module.exports.signup = async (req, res) => {
         }
 
         db.execute(`INSERT INTO heroku_cd5497db7ba8561.users (userName,userPassword,userEmail) VALUES ("${userData.username}","${userData.userpassword}","${userData.useremail}");`).then((data) => {
-            console.log(data);
+            // console.log(data);
 
             if (data) {
                 res.send({

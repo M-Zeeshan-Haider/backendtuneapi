@@ -27,6 +27,7 @@ module.exports.createKyc = async (req, res) => {
     if (userData[0].length > 0) {
 
         if (userData[0][0].isKyc === 0) {
+            console.log("********************")
             db.execute("UPDATE heroku_cd5497db7ba8561.kyc SET firstName= '" + kycData.firstName + "', lastName='" + kycData.lastName + "' ,isKyc=" + kycData.isKyc + " ,phoneNumber='" + kycData.phoneNumber + "', birthDate='" + kycData.birthDate + "', teleName='" + kycData.teleName + "',addressOne='" + kycData.addressOne + "',addressTwo='" + kycData.addressTwo + "', city='" + kycData.city + "', state='" + kycData.state + "',nationality='" + kycData.nationality + "', zipCode='" + kycData.zipCode + "', profileimage='" + kycData.profileimage + "',verificationimage='" + kycData.verificationimage + "',imageAddress='" + kycData.imageAddress + "', verificationType='" + kycData.verificationType + "', documentType='" + kycData.documentType + "', bioInfo='" + kycData.bioInfo + "', title='" + kycData.title + "'  WHERE email='" + req.body.email + "';").then((data) => {
                 console.log('RESPONSE DATA:::');
                 if (data) {
@@ -53,16 +54,18 @@ module.exports.createKyc = async (req, res) => {
         }
     } else {
         db.execute(`INSERT INTO heroku_cd5497db7ba8561.kyc (firstName, lastName, email,isKyc, phoneNumber, birthDate, teleName, addressOne, addressTwo, city, state, nationality, zipCode, profileimage, verificationimage, imageAddress, verificationType,documentType,bioInfo,title) VALUES ("${kycData.firstName}", "${kycData.lastName}", "${kycData.email}","${kycData.isKyc}", "${kycData.phoneNumber}", "${kycData.birthDate}", "${kycData.teleName}", "${kycData.addressOne}", "${kycData.addressTwo}", "${kycData.city}", "${kycData.state}", "${kycData.nationality}", "${kycData.zipCode}", "${kycData.profileimage}", "${kycData.verificationimage}", "${kycData.imageAddress}", "${kycData.verificationType}", "${kycData.documentType}", "${kycData.bioInfo}", "${kycData.title}" )`).then((data) => {
-            console.log(data);
+            // console.log(data);
             if (data) {
                 res.send({
                     "message": "successfully",
-                    status: true
+                    status: true,
+                    profilestatus: true
                 })
             } else {
                 res.send({
                     "message": 'unsuccessful;',
-                    status: false
+                    status: false,
+                    profilestatus: false
                 })
             }
         }).catch(err => {
@@ -115,7 +118,7 @@ module.exports.verifykyc = (req, res) => {
 module.exports.updatekyc = (req, res) => {
     db.execute(`UPDATE heroku_cd5497db7ba8561.kyc SET status="1" WHERE idkyc="${req.body.id}"`).then(
         data => {
-            console.log(data)
+            // console.log(data)
             if (data) {
                 res.send({
                     message: 'found',
@@ -138,7 +141,7 @@ module.exports.getapprovedkyc = (req, res) => {
     console.log(req.body.email)
     db.execute(`SELECT * FROM heroku_cd5497db7ba8561.kyc where email="${req.body.email}"`).then(
         data => {
-            console.log(data[0][0])
+            // console.log(data[0][0])
             if (data[0][0]) {
                 res.send({
                     message: 'found',
@@ -159,7 +162,7 @@ module.exports.getapprovedkyc = (req, res) => {
 
 function getKycDetail(query, res) {
     db.execute(query).then((data) => {
-        console.log("TESING RECORD::", data)
+        // console.log("TESING RECORD::", data)
         if (data[0].length > 0) {
             res.send({
                 "message": 'Hurrah',
@@ -175,4 +178,55 @@ function getKycDetail(query, res) {
     }).catch(err => {
         console.log(err);
     });
+}
+
+/**
+ * ***update kyc data by email *****
+ */
+module.exports.updateKycData=async (req,res)=>{
+    const kycData = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        phoneNumber: req.body.phoneNumber,
+        birthDate: req.body.birthDate,
+        teleName: req.body.teleName,
+        addressOne: req.body.addressOne,
+        addressTwo: req.body.addressTwo,
+        isKyc: req.body.isKyc,
+        bioInfo: req.body.bioInfo,
+        title: req.body.title,
+        city: req.body.city,
+        state: req.body.state,
+        nationality: req.body.nationality,
+        zipCode: req.body.zipCode,
+        profileimage: req.body.profileimage,
+     
+    }
+    let userData = await db.execute("SELECT * FROM heroku_cd5497db7ba8561.kyc where email ='" + req.body.email + "';");
+    if (userData[0].length > 0) {
+            console.log("********************")
+            db.execute("UPDATE heroku_cd5497db7ba8561.kyc SET firstName= '" + kycData.firstName + "', lastName='" + kycData.lastName + "' ,isKyc=" + kycData.isKyc + " ,phoneNumber='" + kycData.phoneNumber + "', birthDate='" + kycData.birthDate + "', teleName='" + kycData.teleName + "',addressOne='" + kycData.addressOne + "',addressTwo='" + kycData.addressTwo + "', city='" + kycData.city + "', state='" + kycData.state + "',nationality='" + kycData.nationality + "', zipCode='" + kycData.zipCode + "', profileimage='" + kycData.profileimage + "', bioInfo='" + kycData.bioInfo + "', title='" + kycData.title + "'  WHERE email='" + req.body.email + "';").then((data) => {
+                console.log('RESPONSE DATA:::');
+                if (data) {
+                    res.send({
+                        "message": "successfully",
+                        status: true,
+                        profilestatus: true
+                    })
+                } else {
+                    res.send({
+                        "message": 'unsuccessful;',
+                        status: false,
+                        profilestatus: false
+                    })
+                }
+            }).catch(err => {
+                console.log(err);
+            })
+       
+} else{
+    console.log("email not exists")
+}
+
 }

@@ -53,7 +53,7 @@ module.exports.signup = (req, res) => {
     }
 
     db.execute(`INSERT INTO heroku_cd5497db7ba8561.admin (userName,userPassword,userEmail,userId) VALUES ("${userData.username}","${userData.userpassword}","${userData.useremail}","${userData.id}");` ).then((data) => {
-        console.log(data);
+        // console.log(data);
         
         if(data){
             res.send({

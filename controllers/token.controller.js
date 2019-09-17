@@ -54,7 +54,7 @@ module.exports.listToken = (req, res) => {
     }
 
     db.execute(`INSERT INTO heroku_cd5497db7ba8561.listtoken (name, symbol, decimals, ethAddress, description, genre, soundCloud, totalSupply, website, youtube) VALUES ("${userData.name}","${userData.symbol}","${userData.decimal}","${userData.ethAddress}","${userData.description}","${userData.category}","${userData.soundCloud}","${userData.supply}","${userData.website}","${userData.youtube}");` ).then((data) => {
-        console.log(data);
+        // console.log(data);
         
         if(data){
             res.send({
@@ -83,7 +83,7 @@ module.exports.insertToken = (req, res) => {
     }
 
     db.execute(`INSERT INTO heroku_cd5497db7ba8561.tokens (addr, name, fullName, decimals) VALUES ("${tokenData.addr}","${tokenData.name}","${tokenData.fullName}","${tokenData.decimals}");` ).then((data) => {
-        console.log(data);
+        // console.log(data);
         
         if(data){
             db.execute(`DELETE FROM heroku_cd5497db7ba8561.listtoken WHERE ethAddress="${tokenData.addr}"`)

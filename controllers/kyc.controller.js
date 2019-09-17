@@ -32,12 +32,14 @@ module.exports.createKyc = async (req, res) => {
                 if (data) {
                     res.send({
                         "message": "successfully",
-                        status: true
+                        status: true,
+                        profilestatus: true
                     })
                 } else {
                     res.send({
                         "message": 'unsuccessful;',
-                        status: false
+                        status: false,
+                        profilestatus: false
                     })
                 }
             }).catch(err => {

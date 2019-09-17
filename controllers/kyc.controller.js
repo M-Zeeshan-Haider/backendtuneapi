@@ -11,6 +11,8 @@ module.exports.createKyc = async (req, res) => {
         addressOne: req.body.addressOne,
         addressTwo: req.body.addressTwo,
         isKyc: req.body.isKyc,
+        bioInfo: req.body.bioInfo,
+        title: req.body.title,
         city: req.body.city,
         state: req.body.state,
         nationality: req.body.nationality,
@@ -23,11 +25,9 @@ module.exports.createKyc = async (req, res) => {
     }
     let userData = await db.execute("SELECT * FROM heroku_cd5497db7ba8561.kyc where email ='" + req.body.email + "';");
     if (userData[0].length > 0) {
-        console.log("TRESITNG3:::", userData[0][0].isKyc)
-        console.log("TRESITNG2:::", kycData.isKyc)
 
         if (userData[0][0].isKyc === 0) {
-            db.execute("UPDATE heroku_cd5497db7ba8561.kyc SET firstName= '" + kycData.firstName + "', lastName='" + kycData.lastName + "' ,isKyc=" + kycData.isKyc + " ,phoneNumber='" + kycData.phoneNumber + "', birthDate='" + kycData.birthDate + "', teleName='" + kycData.teleName + "',addressOne='" + kycData.addressOne + "',addressTwo='" + kycData.addressTwo + "', city='" + kycData.city + "', state='" + kycData.state + "',nationality='" + kycData.nationality + "', zipCode='" + kycData.zipCode + "', profileimage='" + kycData.profileimage + "',verificationimage='" + kycData.verificationimage + "',imageAddress='" + kycData.imageAddress + "', verificationType='" + kycData.verificationType + "', documentType='" + kycData.documentType + "'  WHERE email='" + req.body.email + "';").then((data) => {
+            db.execute("UPDATE heroku_cd5497db7ba8561.kyc SET firstName= '" + kycData.firstName + "', lastName='" + kycData.lastName + "' ,isKyc=" + kycData.isKyc + " ,phoneNumber='" + kycData.phoneNumber + "', birthDate='" + kycData.birthDate + "', teleName='" + kycData.teleName + "',addressOne='" + kycData.addressOne + "',addressTwo='" + kycData.addressTwo + "', city='" + kycData.city + "', state='" + kycData.state + "',nationality='" + kycData.nationality + "', zipCode='" + kycData.zipCode + "', profileimage='" + kycData.profileimage + "',verificationimage='" + kycData.verificationimage + "',imageAddress='" + kycData.imageAddress + "', verificationType='" + kycData.verificationType + "', documentType='" + kycData.documentType + "', bioInfo='" + kycData.bioInfo + "', title='" + kycData.title + "'  WHERE email='" + req.body.email + "';").then((data) => {
                 console.log('RESPONSE DATA:::');
                 if (data) {
                     res.send({
@@ -50,7 +50,7 @@ module.exports.createKyc = async (req, res) => {
             });
         }
     } else {
-        db.execute(`INSERT INTO heroku_cd5497db7ba8561.kyc (firstName, lastName, email,isKyc, phoneNumber, birthDate, teleName, addressOne, addressTwo, city, state, nationality, zipCode, profileimage, verificationimage, imageAddress, verificationType,documentType) VALUES ("${kycData.firstName}", "${kycData.lastName}", "${kycData.email}","${kycData.isKyc}", "${kycData.phoneNumber}", "${kycData.birthDate}", "${kycData.teleName}", "${kycData.addressOne}", "${kycData.addressTwo}", "${kycData.city}", "${kycData.state}", "${kycData.nationality}", "${kycData.zipCode}", "${kycData.profileimage}", "${kycData.verificationimage}", "${kycData.imageAddress}", "${kycData.verificationType}", "${kycData.documentType}" )`).then((data) => {
+        db.execute(`INSERT INTO heroku_cd5497db7ba8561.kyc (firstName, lastName, email,isKyc, phoneNumber, birthDate, teleName, addressOne, addressTwo, city, state, nationality, zipCode, profileimage, verificationimage, imageAddress, verificationType,documentType,bioInfo,title) VALUES ("${kycData.firstName}", "${kycData.lastName}", "${kycData.email}","${kycData.isKyc}", "${kycData.phoneNumber}", "${kycData.birthDate}", "${kycData.teleName}", "${kycData.addressOne}", "${kycData.addressTwo}", "${kycData.city}", "${kycData.state}", "${kycData.nationality}", "${kycData.zipCode}", "${kycData.profileimage}", "${kycData.verificationimage}", "${kycData.imageAddress}", "${kycData.verificationType}", "${kycData.documentType}", "${kycData.bioInfo}", "${kycData.title}" )`).then((data) => {
             console.log(data);
             if (data) {
                 res.send({

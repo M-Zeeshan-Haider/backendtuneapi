@@ -3,12 +3,16 @@ const db = require('../config/db.config');
 const jwt = require('jsonwebtoken');
 const SECRET_KEY = require('../config/secretkey');
 
-module.exports.login = (req, res) => {
-
+module.exports.login =async (req, res) => {
+let profile = false;
     const userData = {
         useremail: req.body.userEmail,
         userpassword: req.body.userPassword
     }
+    let userfind = await db.execute("SELECT * FROM heroku_cd5497db7ba8561.kyc where email ='" + req.body.userEmail + "';");
+    if (userfind[0].length>0) {
+       profile = true
+    } 
     token = jwt.sign({
             role: 'user'
         },
@@ -23,7 +27,8 @@ module.exports.login = (req, res) => {
                 "message": 'Success',
                 status: true,
                 data: data[0],
-                token: token
+                token: token,
+                profileStatus: profile
             });
         } else {
             res.send({
